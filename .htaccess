@@ -1,0 +1,63 @@
+# For c "Extract “.html” from all URLs, and “index” resolves to folder level"
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)index\.html$ /$1 [L,R=302] 
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.html$ /$1 [L,R=302] 
+
+
+# For d(i) “/degree/eveningmba/” is replaced with “/part-time-mba/”
+RewriteRule ^degree/eveningmba(.*)$ /part-time-mba$1 [L,R=302] 
+
+# For d(ii) Result: “/degree/memba” is replaced with “/emba/modular/”
+RewriteRule ^degree/memba(.*)$ /emba/modular$1 [L,R=302] 
+
+# For d(iii) "Result: “/degree/msba” is replaced with “/msba/”"     
+RewriteRule ^degree/msba(.*)$ /msba$1 [L,R=302] 
+
+# For d(iv) "Result: “/degree/one_year_mba” is replaced with “/full-time-mba/one-year-mba/”
+# For d(vi) "Result: “/degree/two_year_mba” is replaced with “/full-time-mba/two-year-mba/” 
+RewriteRule ^degree/(one_year_mba|two_year_mba)(.*)$ /full-time-mba/$1$2 [L,R=302] 
+
+# For d(v) "Result: “/degree/phd” is replaced with “/phd/”"
+RewriteRule ^degree/phd(.*)$ /phd$1 [L,R=302] 
+
+# For d(vii) "Result: “/degree/undergraduate” is replaced with “/undergraduate-business-degree/”"
+RewriteRule ^degree/undergraduate(.*)$ /undergraduate-business-degree$1 [L,R=302] 
+
+# For d(viii) "Result: “/degree/wemba” is replaced with “/emba/weekend/”"
+RewriteRule ^degree/wemba(.*)$ /emba/weekend$1 [L,R=302] 
+
+# For d(ix) "Result: “/aboutgoizueta/” is replaced with “/about/”"
+RewriteRule ^aboutgoizueta(.*)$ /about$1 [L,R=302] 
+
+# For d(x) "Result: “/strategicplan/” is replaced with “/strategic-plan/”"
+RewriteRule ^strategicplan(.*)$ /strategic-plan$1 [L,R=302] 
+
+# For d(xi) "Result: “/executiveprograms/” is replaced with “/executive-education/”"
+RewriteRule ^executiveprograms(.*)$ /executive-education$1 [L,R=302] 
+
+# For e "All URLs containing “/experience/” should 302 to https://goizueta.emory.edu/about"
+RewriteRule ^experience(.*) /about [L,R=302]
+
+
+# For NEW "we need to extract “display.aspx?username=” from the url for all faculty 
+# and then swap the order of firstname string and lastname string"
+RewriteRule faculty/profiles/display.aspx?username=(.*)_(.*)$ /faculty/profiles/$2-$1 [L,R=302]
+
+
+# For b "Convert all underscores to hyphens"
+# Needs to be after the above redirects
+# From https://stackoverflow.com/a/28133915/814492
+# if there is only one underscore then replace it by - and redirect
+RewriteRule ^([^_]*)_([^_]*)$ /$1-$2 [L,R=302]
+
+# if there are more than one underscores then "repeatedly" replace it by - 
+# and set env var USCORE
+RewriteRule ^([^_]*)_([^_]*)_(.*) $1-$2-$3 [E=USCORE:1]
+
+# if USCORE env var is set then redirect
+RewriteCond %{ENV:REDIRECT_USCORE} =1
+RewriteRule ^([^_]+)$ /$1 [L,R=302]
