@@ -63,7 +63,7 @@ RewriteCond %{ENV:REDIRECT_USCORE} =1
 RewriteRule ^([^_]+)$ /$1 [L,R=302]
 
 # 55 -- degree/emba/ is redirected to emba/weekend/
-RewriteRule ^/degree/emba/?$ /emba/weekend/ [L,R=302]
+RewriteRule ^/degree/emba/$ /emba/weekend/ [L,R=302]
 
 #56 -- degree/emba/admissions/(.*) is replaced with emba/weekend/admissions
 RewriteRule ^/degree/emba/admissions(.*)$ /emba/weekend/admissions$1 [L,R=302]
