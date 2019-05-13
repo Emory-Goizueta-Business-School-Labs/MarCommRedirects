@@ -41,20 +41,6 @@ RewriteRule ^experience(.*) /about [L,R=302]
 RewriteRule faculty/profiles/display.aspx?username=(.*)_(.*)$ /faculty/profiles/$2-$1 [L,R=302]
 
 
-# For b "Convert all underscores to hyphens"
-# Needs to be after the above redirects
-# From https://stackoverflow.com/a/28133915/814492
-# if there is only one underscore then replace it by - and redirect
-RewriteRule ^([^_]*)_([^_]*)$ /$1-$2 [L,R=302]
-
-# if there are more than one underscores then "repeatedly" replace it by - 
-# and set env var USCORE
-RewriteRule ^([^_]*)_([^_]*)_(.*) $1-$2-$3 [E=USCORE:1]
-
-# if USCORE env var is set then redirect
-RewriteCond %{ENV:REDIRECT_USCORE} =1
-RewriteRule ^([^_]+)$ /$1 [L,R=302]
-
 # 55 -- degree/emba/ is redirected to emba/weekend/
 RewriteRule ^/degree/emba/$ /emba/weekend/ [L,R=302]
 
@@ -166,3 +152,18 @@ RewriteRule ^(.*)index\.html$ /$1 [L,R=302]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)\.html$ /$1 [L,R=302] 
+
+
+# For b "Convert all underscores to hyphens"
+# Needs to be after the above redirects
+# From https://stackoverflow.com/a/28133915/814492
+# if there is only one underscore then replace it by - and redirect
+RewriteRule ^([^_]*)_([^_]*)$ /$1-$2 [L,R=302]
+
+# if there are more than one underscores then "repeatedly" replace it by - 
+# and set env var USCORE
+RewriteRule ^([^_]*)_([^_]*)_(.*) $1-$2-$3 [E=USCORE:1]
+
+# if USCORE env var is set then redirect
+RewriteCond %{ENV:REDIRECT_USCORE} =1
+RewriteRule ^([^_]+)$ /$1 [L,R=302]
