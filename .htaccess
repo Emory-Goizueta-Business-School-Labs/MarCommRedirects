@@ -62,7 +62,6 @@ RewriteRule ^([^_]*)_([^_]*)_(.*) $1-$2-$3 [E=USCORE:1]
 RewriteCond %{ENV:REDIRECT_USCORE} =1
 RewriteRule ^([^_]+)$ /$1 [L,R=302]
 
-
 # 55 -- degree/emba/ is redirected to emba/weekend/
 RewriteRule ^/degree/emba/?$ /emba/weekend/ [L,R=302]
 
@@ -75,136 +74,95 @@ RewriteRule ^/degree/emba/career(.*)$ /emba/weekend/career$1 [L,R=302]
 #58 -- degree/emba/curriculum/(.*) is replaced with emba/weekend/academics
 RewriteRule ^degree/emba/curriculum(.*)$ /emba/weekend/academics$1 [L,R=302]
 
-
 #59 -- degree/emba/index.html is redirected to emba/
-Rewrite ^degree/emba/index.html$ /emba/ [L,R=302]
-
+RewriteRule ^degree/emba/index.html$ /emba/ [L,R=302]
 
 #60 -- degree/emba/memba/(.*) is replaced with emba/modular
-Rewrite ^degree/emba/memba(.*)$ /emba/modular$1 [L,R=302]
-
+RewriteRule ^degree/emba/memba(.*)$ /emba/modular$1 [L,R=302]
 
 #61 -- degree/emba/wemba/(.*) is replaced with emba/weekend
-Rewrite ^degree/emba/wemba(.*)$ /emba/weekend$1 [L,R=302]
-
+RewriteRule ^degree/emba/wemba(.*)$ /emba/weekend$1 [L,R=302]
 
 #62 -- degree/fulltimemba/admissions is redirected to full-time-mba/two-year-mba/admissions
-Rewrite ^degree/fulltimemba/admissions/?$ /full-time-mba/two-year-mba/admissions [L,R=302]
-
+RewriteRule ^degree/fulltimemba/admissions/?$ /full-time-mba/two-year-mba/admissions [L,R=302]
 
 #63 -- degree/fulltimemba/curriculum/ is redirected to full-time-mba/two-year-mba/academics
-Rewrite ^degree/fulltimemba/curriculum/?$ /full-time-mba/two-year-mba/academics [L,R=302]
-
+RewriteRule ^degree/fulltimemba/curriculum/?$ /full-time-mba/two-year-mba/academics [L,R=302]
 
 #64 -- degree/fulltimemba/index.html is redirected to full-time-mba
-Rewrite ^degree/fulltimememba/index.html$ /full-time-mba [L,R=302]
-
+RewriteRule ^degree/fulltimememba/index.html$ /full-time-mba [L,R=302]
 
 #65 -- degree/fulltimemba/life/ is redirected to full-time-mba/two-year-mba/life
-Rewrite ^degree/fulltimemba/life/?$ /full-time-mba/two-year-mba/life [L,R=302]
-
+RewriteRule ^degree/fulltimemba/life/?$ /full-time-mba/two-year-mba/life [L,R=302]
 
 #66 -- degree/fulltimemba/one_year_mba/ is redirected to full-time-mba/one-year-mba
-Rewrite ^degree/fulltimemba/one_year_mba/?$ /full-time-mba/one-year-mba [L,R=302]
-
-
+RewriteRule ^degree/fulltimemba/one_year_mba/?$ /full-time-mba/one-year-mba [L,R=302]
 
 #67 -- degree/fulltimemba/two_year_mba/ is redirected to full-time-mba/two-year-mba
-Rewrite ^degree/fulltimemba/two_year_mba/?$ /full-time-mba/two-year-mba [L,R=302]
-
-
+RewriteRule ^degree/fulltimemba/two_year_mba/?$ /full-time-mba/two-year-mba [L,R=302]
 
 #68 -- degree/phd/accounting/(.*) is replaced with phd/academics/accounting
-Rewrite ^degree/phd/account(.*)$ /phd/academics/accounting$1 [L,R=302]
-
-
+RewriteRule ^degree/phd/account(.*)$ /phd/academics/accounting$1 [L,R=302]
 
 #69 -- degree/phd/finance/(.*) is replaced with to phd/academics/finance
-Rewrite ^degree/phd/finance(.*)$ /phd/academics/finance$1 [L,R=302]
-
-
+RewriteRule ^degree/phd/finance(.*)$ /phd/academics/finance$1 [L,R=302]
 
 #70 -- degree/phd/information_systems/(.*) is replaced with phd/academics/information-systems
-Rewrite ^degree/phd/information_systems(.*)$ /phd/academics/information-systems/$1 [L,R=302]
-
-
+RewriteRule ^degree/phd/information_systems(.*)$ /phd/academics/information-systems/$1 [L,R=302]
 
 #71 -- degree/phd/marketing/(.*) is replaced with phd/academics/marketing
-Rewrite ^degree/phd/marketing(.*)$  /phd/academics/marketing/$1 [L,R=302]
-
-
+RewriteRule ^degree/phd/marketing(.*)$  /phd/academics/marketing/$1 [L,R=302]
 
 #72 -- degree/phd/organization_management/(.*) is replaced with phd/weekend/organization-management
-Rewrite ^degree/phd/organization_management(.*)$ /phd/weekend/organization-management/$1 [L,R=302]
-
-
+RewriteRule ^degree/phd/organization_management(.*)$ /phd/weekend/organization-management/$1 [L,R=302]
 
 #73 -- degree/undergra_prog.html is redirected to undergraduate-business-degree
-Rewrite ^degree/undergra_prog.html$ /undergraduate-business-degree [L,R=302]
-
-
+RewriteRule ^degree/undergra_prog.html$ /undergraduate-business-degree [L,R=302]
 
 #74 -- undergraduate-business-degree is redirected to undergraduate-business-degree/curriculum/advising
-Rewrite ^degree/undergraduate-business-degree/?$ /undergraduate-business-degree/curriculum/advising [L,R=302]
-
-
+RewriteRule ^degree/undergraduate-business-degree/?$ /undergraduate-business-degree/curriculum/advising [L,R=302]
 
 #75 -- degree/undergraduate/curricular_options/arts.html is redirected to undergraduate-business-degree/academic-pathways/concentrations
-
-Rewrite ^degree/undergraduate/curricular_options/(arts|concentrations|environment|film|health_innovation).html? /undergraduate-business-degree/academic-pathways/concentrations [L,R=302]
-
+RewriteRule ^degree/undergraduate/curricular_options/(arts|concentrations|environment|film|health_innovation).html? /undergraduate-business-degree/academic-pathways/concentrations [L,R=302]
 
 #76 -- degree/undergraduate/curricular_options/concentrations.html is redirected to undergraduate-business-degree/academic-pathways/concentrations
 #See #75
 
-
-
 #77 -- degree/undergraduate/curricular_options/environment.html is redirected to undergraduate-business-degree/academic-pathways/concentrations
 #See #75
-
-
 
 #78 -- degree/undergraduate/curricular_options/film.html is redirected to undergraduate-business-degree/academic-pathways/concentrations
 #See #75
 
-
-
 #79 -- degree/undergraduate/curricular_options/health_innovation.html is redirected to undergraduate-business-degree/academic-pathways/concentrations
 #See #75
 
-
-
 #80 -- degree/undergraduate/curricular_options/index.html is redirected to undergraduate-business-degree/academic-pathways
-Rewrite ^degree/undergraduate/curricular_options/index.html$ /undergraduate-business-degree/academic-pathways [L,R=302]
-
+RewriteRule ^degree/undergraduate/curricular_options/index.html$ /undergraduate-business-degree/academic-pathways [L,R=302]
 
 #81 -- degree/undergraduate/curriculum/mpa.html is redirected to undergraduate-business-degree/academic-pathways/dual-degrees
-Rewrite ^degree/undergraduate/curriculum/mpa.html$ /undergraduate-business-degree/academic-pathways/dual-degrees [L,R=302]
-
+RewriteRule ^degree/undergraduate/curriculum/mpa.html$ /undergraduate-business-degree/academic-pathways/dual-degrees [L,R=302]
 
 #82 -- degree/undergraduate/curriculum/secondary_area_depths.html is redirected to undergraduate-business-degree/academic-pathways/majors#secondary
-Rewrite ^degree/undergraduate/curriculum/secondary_area_depths.html$ /undergraduate-business-degree/academic-pathways/majors#secondary [L,R=302]
-
+RewriteRule ^degree/undergraduate/curriculum/secondary_area_depths.html$ /undergraduate-business-degree/academic-pathways/majors#secondary [L,R=302]
 
 #83 -- degree/undergraduate/international/after/index.html is redirected to undergraduate-business-degree/academic-pathways/exchange-study
-Rewrite ^degree/undergraduate/international/after/index.html$ /undergraduate-business-degree/academic-pathways/exchange-study [L,R=302]
-
+RewriteRule ^degree/undergraduate/international/after/index.html$ /undergraduate-business-degree/academic-pathways/exchange-study [L,R=302]
 
 #84 -- degree/undergraduate/international/before/index.html is redirected to undergraduate-business-degree/academic-pathways/exchange-study#before
-Rewrite ^degree/undergraduate/international/before/index.html$ /undergraduate-business-degree/academic-pathways/exchange-study#before [L,R=302]
-
+RewriteRule ^degree/undergraduate/international/before/index.html$ /undergraduate-business-degree/academic-pathways/exchange-study#before [L,R=302]
 
 #85 -- degree/undergraduate/international/during/index.html is redirected to undergraduate-business-degree/academic-pathways/exchange-study#during
-Rewrite ^degree/undergraduate/international/during/index.html$ /undergraduate-business-degree/academic-pathways/exchange-study#during [L,R=302]
+RewriteRule ^degree/undergraduate/international/during/index.html$ /undergraduate-business-degree/academic-pathways/exchange-study#during [L,R=302]
 
 #86 -- no idea
 #87 -- no idea
 
 #88 -- gmsc/(.*) is replaced with strategic-plan/experiential-learning
-Rewrite ^gmsc(.*)$ /strategic-plan/experiential-learning$1 [L,R=302]
+RewriteRule ^gmsc(.*)$ /strategic-plan/experiential-learning$1 [L,R=302]
 
 #89 -- leaderdevelopment/(.*) is replaced with strategic-plan/leadership
-Reqrite ^leaderdevelopment(.*)$ /strategic-plan/leadership$1 [L,R=302]
+RewriteRule ^leaderdevelopment(.*)$ /strategic-plan/leadership$1 [L,R=302]
 
 
 
