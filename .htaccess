@@ -1,6 +1,3 @@
-
-
-
 # For d(i) “/degree/eveningmba/” is replaced with “/part-time-mba/”
 RewriteRule ^degree/eveningmba(.*)$ /part-time-mba$1 [L,R=302] 
 
