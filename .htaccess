@@ -131,8 +131,11 @@ RewriteRule ^degree/undergraduate/international/before/index.html$ /undergraduat
 #85 -- degree/undergraduate/international/during/index.html is redirected to undergraduate-business-degree/academic-pathways/exchange-study#during
 RewriteRule ^degree/undergraduate/international/during/index.html$ /undergraduate-business-degree/academic-pathways/exchange-study#during [L,R=302]
 
-#86 -- no idea
-#87 -- no idea
+#86 -- faculty/academic_areas/(.*)/(.*)(.....) to https://goizueta.emory.edu/faculty/profiles/display.aspx?username={R:2}
+RewriteRule ^faculty/academic_areas/(.*)/(.*)(.....) /faculty/profiles/display.aspx?username=$2 [L,R=302]
+
+#87 -- Redirect faculty/academic_areas/(.*)/(.+)-(.+)(.....) to https://goizueta.emory.edu/faculty/profiles/display.aspx?username={R:2}{R:3}
+RewriteRule ^faculty/academic_areas/(.*)/(.+)-(.+)(.....) /faculty/profiles/display.aspx?username=$2$3 [L,R=302]
 
 #88 -- gmsc/(.*) is replaced with strategic-plan/experiential-learning
 RewriteRule ^gmsc/(.*)$ /strategic-plan/experiential-learning [L,R=302]
